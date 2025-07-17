@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectionVC" customModule="EF25NavigationApp" customModuleProvider="target">
+            <connections>
+                <outlet property="addProfileButton" destination="Ejg-hc-9t7" id="ejV-PM-WhB"/>
+                <outlet property="collectionView" destination="sEX-KU-QzH" id="ejF-if-XLU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-KU-QzH">
+                    <rect key="frame" x="16" y="118" width="361" height="666"/>
+                    <color key="backgroundColor" name="Background"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="uts-jV-3l2">
+                        <size key="itemSize" width="64" height="64"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejg-hc-9t7">
+                    <rect key="frame" x="106.66666666666669" y="492" width="180" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="Keb-RS-7ZB"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Add Profile"/>
+                    <connections>
+                        <action selector="addProfileButtonTapped" destination="-1" eventType="touchUpInside" id="AJK-bO-PdW"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="Background"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ejg-hc-9t7" secondAttribute="trailing" constant="106.5" id="3bL-tb-6W9"/>
+                <constraint firstItem="sEX-KU-QzH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4Qv-T3-bvO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="sEX-KU-QzH" secondAttribute="bottom" id="Be0-S8-Mpc"/>
+                <constraint firstItem="sEX-KU-QzH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Kly-jY-DnW"/>
+                <constraint firstItem="Ejg-hc-9t7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="106.5" id="Ogg-N7-I0A"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ejg-hc-9t7" secondAttribute="bottom" constant="240" id="Swc-bk-Env"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sEX-KU-QzH" secondAttribute="trailing" constant="16" id="yw3-GH-hr3"/>
+            </constraints>
+            <point key="canvasLocation" x="-11" y="-32"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
