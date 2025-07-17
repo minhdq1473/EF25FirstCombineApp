@@ -16,16 +16,6 @@ class CustomView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadFromNib()
-                
-//        view.layer.cornerRadius = 15
-//        backgroundColor = .background
-        
-//        let avatar = UIImageView(image: UIImage(named: "Image"))
-//        avatar.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
-//        avatar.contentMode = .scaleAspectFill
-//        self.addSubview(avatar)
-        
-        
     }
     
     required init?(coder: NSCoder) {
@@ -50,12 +40,4 @@ class CustomView: UIView {
             nibView.trailingAnchor.constraint(equalTo: trailingAnchor)])
         
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

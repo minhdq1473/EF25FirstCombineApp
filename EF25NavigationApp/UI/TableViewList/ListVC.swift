@@ -64,6 +64,7 @@ class ListVC: UIViewController {
             tableList.insertRows(at: [IndexPath(row: data.count - 1, section: 0)], with: .automatic)
         }
     }
+    
     private func setupTableView() {
         tableList.register(UINib(nibName: "ListCell", bundle: nil), forCellReuseIdentifier: "ListCell")
         tableList.delegate = self
@@ -71,6 +72,7 @@ class ListVC: UIViewController {
         tableList.separatorStyle = .none
 //        tableList.allowsSelection = true 
     }
+    
     private func setupButton() {
         addProfileButton.backgroundColor = .primary1
         addProfileButton.layer.cornerRadius = 15
@@ -78,6 +80,7 @@ class ListVC: UIViewController {
         addProfileButton.setTitleColor(.neutral5, for: .normal)
         addProfileButton.tintColor = .neutral3
     }
+    
     private func updateBackgroundView() {
         if data.isEmpty {
             let emptyView = UIView(frame: tableList.bounds)
@@ -127,9 +130,9 @@ class ListVC: UIViewController {
         }
     }
     
-    private func updateNavigationBar() {
-        
-    }
+//    private func updateNavigationBar() {
+//        
+//    }
     
     @objc private func addProfileIconTapped() {
         let vc = InformationVC(profile: .init(firstName: "", lastName: "", gender: "male", weight: 0, height: 0))
@@ -139,18 +142,10 @@ class ListVC: UIViewController {
 }
 
 extension ListVC: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        sectionHeader.count
-//    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        0.1
-//    }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as? ListCell else {
             return UITableViewCell()
@@ -159,11 +154,9 @@ extension ListVC: UITableViewDataSource {
         return cell
     }
     
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("Selected profile: \(data[indexPath.row].fullName)")
+        
         let vc = ProfileVC(profile: data[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -172,18 +165,7 @@ extension ListVC: UITableViewDataSource {
 
 extension ListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let spacing: CGFloat = 12
-        cell.contentView.layoutMargins = UIEdgeInsets(top: spacing/2, left: 0, bottom: spacing/2, right: 0)
-        cell.contentView.backgroundColor = .neutral5
-        cell.contentView.layer.cornerRadius = 20
-        cell.contentView.layer.masksToBounds = false
-        cell.contentView.layer.borderWidth = 1
-        cell.contentView.layer.borderColor = UIColor(named: "neutral4")!.cgColor
-        cell.contentView.frame = cell.contentView.frame.insetBy(dx: 12, dy: 0)
+        return 92
     }
 }
 

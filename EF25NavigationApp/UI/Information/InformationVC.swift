@@ -54,14 +54,6 @@ class InformationVC: UIViewController {
             weight: Double(weightSubject.value) ?? 0,
             height: Double(heightSubject.value) ?? 0
         )
-        
-        print("Saving profile with values:")
-        print("First Name: \(firstNameSubject.value)")
-        print("Last Name: \(lastNameSubject.value)")
-        print("Weight: \(weightSubject.value)")
-        print("Height: \(heightSubject.value)")
-        print("Gender: \(gender.selectedSegmentIndex == 0 ? "Male" : "Female")")
-        
         if isNewProfile {
             ProfileManager.shared.onActionPassthroughSubject.send(.add(newProfile))
         } else {

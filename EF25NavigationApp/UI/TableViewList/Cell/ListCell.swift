@@ -21,9 +21,7 @@ class ListCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        backgroundColor = .clear
-        
-        contentView.backgroundColor = .neutral5
+        setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,6 +30,16 @@ class ListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    private func setupUI() {
+        stackView.backgroundColor = .neutral5
+        stackView.layer.cornerRadius = 20
+        stackView.layer.masksToBounds = false
+        stackView.layer.borderWidth = 1
+        stackView.layer.borderColor = #colorLiteral(red: 0.8705882353, green: 0.8745098039, blue: 0.9019607843, alpha: 1)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
+    }
 
 //    override func layoutSubviews() {
 //        super.layoutSubviews()

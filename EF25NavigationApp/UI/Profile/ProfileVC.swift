@@ -43,8 +43,8 @@ class ProfileVC: UIViewController {
         setupUI()
         updateUI()
         setupDeleteButton()
+        configProfile()
         observer()
-        
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
@@ -65,8 +65,6 @@ class ProfileVC: UIViewController {
         editButton.backgroundColor = .primary1
         editButton.layer.cornerRadius = 15
         
-        configProfile()
-        
         nameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
     
@@ -79,34 +77,35 @@ class ProfileVC: UIViewController {
     }
     
     private func observer() {
-            ProfileManager
-                .shared
-                .onUpdateAction
-//                .filter({
-//                    switch $0 {
-//                    case .update(_, let updatedProfile):
-//                        return self.profile.id == updatedProfile.id
-//                    case .delete(let id):
-//                        return false
-//                    default:
-//                        return false
-//                    }
-//                })
-                .compactMap({
-                    switch $0 {
-                    case .update(_, let profile):
-                        return profile
-                    default:
-                        return nil
-                    }
-                })
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] updatedProfile in
-                    self?.profile = updatedProfile
-                    self?.updateUI()
+        ProfileManager
+            .shared
+            .onUpdateAction
+        //                .filter({
+        //                    switch $0 {
+        //                    case .update(_, let updatedProfile):
+        //                        return self.profile.id == updatedProfile.id
+        //                    case .delete(let id):
+        //                        return false
+        //                    default:
+        //                        return false
+        //                    }
+        //                })
+            .compactMap({
+                switch $0 {
+                case .update(_, let profile):
+                    return profile
+                default:
+                    return nil
                 }
-                .store(in: &subscription)
-        }
+            })
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] updatedProfile in
+                self?.profile = updatedProfile
+                self?.updateUI()
+            }
+            .store(in: &subscription)
+    }
+    
     @objc func deleteButton() {
         let alert = DeleteAlertVC()
         alert.yesAction = { [weak self] in
